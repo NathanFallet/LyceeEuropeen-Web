@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^home/?$ index.php?page=home
+RewriteRule ^articles/?$ index.php?page=article
+RewriteRule ^articles/([0-9]*)/?$ index.php?page=article&id=$1
+RewriteRule ^pages/([0-9]*)/?$ index.php?page=page&id=$1

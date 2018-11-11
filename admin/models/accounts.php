@@ -1,0 +1,39 @@
+<?php
+if($_GET['action'] == 'add'){
+  $title = 'Ajouter un compte';
+  if(isset($_POST['submit'])){
+    $sql = $bdd->prepare("INSERT INTO accounts (username, password, admin) VALUES(?, ?, ?)");
+    if($sql->execute(array($_POST['username'], md5($_POST['password']), $_POST['admin']))){
+      $error = '<div class="alert alert-success">Le compte a bien été ajouté !</div>';
+      $_GET['action'] = 'view';
+    }else{
+      $error = '<div class="alert alert-danger">Une erreur est survenue lors de l\'ajout du compte !</div>';
+    }
+  }
+}
+if($_GET['action'] == 'edit' && isset($_GET['id'])){
+  $title = 'Modifier un compte';
+  if(isset($_POST['submit'])){
+    $sql = $bdd->prepare("UPDATE accounts SET username = ?, password = ?, admin = ? WHERE id = ?");
+    if($sql->execute(array($_POST['username'], md5($_POST['password']), $_POST['admin'], $_GET['id']))){
+      $error = '<div class="alert alert-success">Le compte a bien été modifié !</div>';
+      $_GET['action'] = 'view';
+    }else{
+      $error = '<div class="alert alert-danger">Une erreur est survenue lors de la modification du compte !</div>';
+    }
+  }
+}
+if($_GET['action'] == 'delete' && isset($_GET['id'])){
+  $title = 'Supprimer un compte';
+  $sql = $bdd->prepare("DELETE FROM accounts WHERE id = ?");
+  if($sql->execute(array($_GET['id']))){
+    $error = '<div class="alert alert-success">Le compte a bien été supprimé !</div>';
+    $_GET['action'] = 'view';
+  }else{
+    $error = '<div class="alert alert-danger">Une erreur est survenue lors de la suppression du compte !</div>';
+  }
+}
+if($_GET['action'] == 'view'){
+  $title = 'Comptes';
+}
+?>
