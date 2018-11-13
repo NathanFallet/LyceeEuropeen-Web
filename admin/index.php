@@ -104,7 +104,7 @@ require_once('models/'.$page.'.php');
          <div class="container">
 
             <div class="copy text-center">
-               EuropAdmin développé par <a target="_blank" href="https://www.zabricraft.fr/">Nathan Fallet</a>
+               EuropAdmin développé par <a target="_blank" href="https://www.nathanfallet.me/">Nathan Fallet</a>
             </div>
 
          </div>

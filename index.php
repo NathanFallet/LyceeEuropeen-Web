@@ -103,7 +103,7 @@ require_once('views/'.$page.'.php');
 </div>
 <div class="wrapper row5">
   <div id="copyright" class="clear">
-    <p class="fl_left">Site développé par <a target="_blank" href="https://www.zabricraft.fr/">Nathan Fallet</a></p>
+    <p class="fl_left">Site développé par <a target="_blank" href="https://www.nathanfallet.me/">Nathan Fallet</a></p>
     <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
   </div>
 </div>
