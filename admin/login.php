@@ -5,15 +5,15 @@ session_start();
 require('config.php');
 
 if(isset($_POST['submit'])){
-  $sql = $bdd->prepare("SELECT * FROM accounts WHERE username = ? AND password = ?");
-  $sql->execute(array($_POST['username'], md5($_POST['password'])));
+  $sql = $bdd->prepare("SELECT * FROM accounts WHERE username = ?");
+  $sql->execute(array($_POST['username']));
   $dn = $sql->fetch();
-  if(!$dn){
-    $error = '<div class="alert alert-danger">Nom d\'utilisateur ou mot de passe incorrecte !</div>';
-  }else{
+  if($dn && password_verify($_POST['password'], $dn['password'])){
     $_SESSION['id'] = $dn['id'];
     header('refresh: 0');
     exit;
+  }else{
+    $error = '<div class="alert alert-danger">Nom d\'utilisateur ou mot de passe incorrecte !</div>';
   }
 }
 ?><!DOCTYPE html>
