@@ -8,6 +8,16 @@ if(!isset($_SESSION['id'])){
 
 // Définitions des variables nécessaires
 require('config.php');
+
+$sql = $bdd->prepare("SELECT * FROM accounts WHERE id = ?");
+$sql->execute(array($_SESSION['id']));
+$account = $sql->fetch();
+
+if(!$account){
+  require('login.php');
+  exit;
+}
+
 $page = 'home';
 if(isset($_GET['page']) && !empty($_GET['page'])){
 	$page = $_GET['page'];
@@ -15,6 +25,10 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 if(!file_exists('views/'.$page.'.php') || !file_exists('models/'.$page.'.php')){
 	$page = '404';
 	http_response_code(404);
+}
+
+if($account['admin'] == 0 && ($page == 'accounts')) {
+  $page = '403';
 }
 
 // Traitement de la page
