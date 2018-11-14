@@ -1,2 +1,2 @@
 config.php merge=ours
-images/ merge=ours
+uploads/ merge=ours

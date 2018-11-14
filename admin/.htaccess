@@ -4,5 +4,6 @@ RewriteRule ^slides/([a-z]+)/([0-9]*)/?$ index.php?page=slides&action=$1&id=$2
 RewriteRule ^pages/([a-z]+)/([0-9]*)/?$ index.php?page=pages&action=$1&id=$2
 RewriteRule ^articles/([a-z]+)/([0-9]*)/?$ index.php?page=articles&action=$1&id=$2
 RewriteRule ^accounts/([a-z]+)/([0-9]*)/?$ index.php?page=accounts&action=$1&id=$2
+RewriteRule ^uploads/([a-z]+)/(.*)/?$ index.php?page=uploads&action=$1&id=$2
 
 ErrorDocument 404 /index.php?page=404

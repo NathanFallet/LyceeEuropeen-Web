@@ -9,6 +9,13 @@ function cutArticle($content){
 	return $content;
 }
 
+function parseURL($current, $url){
+	if(substr($current, 0, 4) === "http" || substr($current, 0, 5) === "https"){
+		return $current;
+	}
+	return $url.'uploads/'.$current;
+}
+
 // Définitions des variables nécessaires
 require('config.php');
 $page = 'home';
@@ -42,7 +49,7 @@ if(isset($title)){
 <div class="wrapper row1">
   <header id="header" class="clear">
     <div id="logo" class="fl_left">
-      <h1><a href="<?php echo $url; ?>">Lycée européen</a></h1>
+      <h1><a href="<?php echo $url; ?>">Lycée européen - Villers-Cotter&ecirc;ts</a></h1>
     </div>
   </header>
 </div>
@@ -72,23 +79,16 @@ require_once('views/'.$page.'.php');
 <div class="wrapper row4">
   <div class="rounded">
     <footer id="footer" class="clear">
-      <div class="one_third first">
-        <figure class="center"><img class="btmspace-15" src="<?php echo $url; ?>images/worldmap.png" alt="">
-          <figcaption><a href="#">Nous trouver sur Google Maps &raquo;</a></figcaption>
-        </figure>
-      </div>
-      <div class="one_third">
+      <div class="one_half">
         <address>
-        Ligne 1<br>
-        Ligne 2<br>
-        Ville<br>
-        Code postal<br>
+        19 Avenue de Noue<br>
+        02600 Villers-Cotter&ecirc;ts<br>
         <br>
         <i class="fa fa-phone pright-10"></i> xxxx xxxx xxxxxx<br>
         <i class="fa fa-envelope-o pright-10"></i> <a href="#">contact@domain.com</a>
         </address>
       </div>
-      <div class="one_third">
+      <div class="one_half">
         <p class="nospace btmspace-10">Réseaux sociaux</p>
         <ul class="faico clear">
           <!--<li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -104,7 +104,7 @@ require_once('views/'.$page.'.php');
 <div class="wrapper row5">
   <div id="copyright" class="clear">
     <p class="fl_left">Site développé par <a target="_blank" href="https://www.nathanfallet.me/">Nathan Fallet</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <p class="fl_right">Template HTML/CSS by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
   </div>
 </div>
 <!-- JAVASCRIPTS -->

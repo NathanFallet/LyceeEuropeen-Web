@@ -101,6 +101,7 @@ require_once('models/'.$page.'.php');
                     <li<?php echo ($page == 'slides' ? ' class="current"' : ''); ?>><a href="<?php echo $url; ?>slides/view/"><i class="glyphicon glyphicon-picture"></i> Slides</a></li>
                     <li<?php echo ($page == 'pages' ? ' class="current"' : ''); ?>><a href="<?php echo $url; ?>pages/view/"><i class="glyphicon glyphicon-list"></i> Pages</a></li>
                     <li<?php echo ($page == 'articles' ? ' class="current"' : ''); ?>><a href="<?php echo $url; ?>articles/view/"><i class="glyphicon glyphicon-pencil"></i> Articles</a></li>
+                    <li<?php echo ($page == 'uploads' ? ' class="current"' : ''); ?>><a href="<?php echo $url; ?>uploads/view/"><i class="glyphicon glyphicon-file"></i> Fichiers</a></li>
                     <li<?php echo ($page == 'accounts' ? ' class="current"' : ''); ?>><a href="<?php echo $url; ?>accounts/view/"><i class="glyphicon glyphicon-user"></i> Comptes</a></li>
                 </ul>
              </div>

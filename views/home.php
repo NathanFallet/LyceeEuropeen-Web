@@ -6,7 +6,7 @@ $sql = $bdd->query("SELECT * FROM slides ORDER BY id DESC LIMIT 5");
 $titles = array();
 while($dn = $sql->fetch()){
 ?>
-      <figure id="slide-<?php echo $dn['id']; ?>"><img src="<?php echo $dn['image']; ?>" alt="">
+      <figure id="slide-<?php echo $dn['id']; ?>"><img src="<?php echo parseURL($dn['image'], $url); ?>" alt="">
         <figcaption>
           <h2><?php echo $dn['name']; ?></h2>
           <p><?php echo $dn['text']; ?></p>
@@ -38,7 +38,7 @@ $sql = $bdd->query("SELECT * FROM articles ORDER BY publish DESC LIMIT 5");
 while($dn = $sql->fetch()){
 ?>
             <li class="clear">
-              <div class="imgl borderedbox"><img src="<?php echo $dn['image']; ?>" alt=""></div>
+              <div class="imgl borderedbox"><img src="<?php echo parseURL($dn['image'], $url); ?>" alt=""></div>
               <p class="nospace btmspace-15"><a href="<?php echo $url.'articles/'.$dn['id']; ?>"><?php echo $dn['title']; ?></a></p>
               <p><?php echo cutArticle($dn['content']); ?></p>
               <p class="right"><a href="<?php echo $url.'articles/'.$dn['id']; ?>">Lire la suite &raquo;</a></p>
