@@ -3,8 +3,9 @@ if($_GET['action'] == 'add'){
   $title = 'Ajouter un compte';
   if(isset($_POST['submit'])){
     if(md5($_POST['password']) == md5($_POST['password2'])){
-      $sql = $bdd->prepare("INSERT INTO accounts (username, password, admin) VALUES(?, ?, ?)");
-      if($sql->execute(array($_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), isset($_POST['admin']) ? 1 : 0))){
+      $sql = $bdd->prepare("INSERT INTO accounts (username, password, slides, pages, articles, uploads, admin) VALUES(?, ?, ?, ?, ?, ?, ?)");
+      if($sql->execute(array($_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), isset($_POST['slides']) ? 1 : 0,
+          isset($_POST['pages']) ? 1 : 0, isset($_POST['articles']) ? 1 : 0, isset($_POST['uploads']) ? 1 : 0, isset($_POST['admin']) ? 1 : 0))){
         $error = '<div class="alert alert-success">Le compte a bien été ajouté !</div>';
         $_GET['action'] = 'view';
       }else{

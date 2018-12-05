@@ -53,7 +53,23 @@ while($dn = $sql->fetch()){
         <input type="password" class="form-control" id="password" name="password2" placeholder="Confirmez le mot de passe">
       </div>
       <div class="form-group">
-        <label for="admin">Administrateur (peut gérer les comptes) :</label>
+        <label for="slides">Accès aux slides :</label>
+        <input type="checkbox" class="form-control" id="slides" name="slides">
+      </div>
+      <div class="form-group">
+        <label for="articles">Accès aux articles :</label>
+        <input type="checkbox" class="form-control" id="articles" name="articles">
+      </div>
+      <div class="form-group">
+        <label for="pages">Accès aux pages :</label>
+        <input type="checkbox" class="form-control" id="pages" name="pages">
+      </div>
+      <div class="form-group">
+        <label for="uploads">Accès aux fichiers :</label>
+        <input type="checkbox" class="form-control" id="uploads" name="uploads">
+      </div>
+      <div class="form-group">
+        <label for="admin">Administrateur (peut gérer les comptes et le contenu de tout le monde) :</label>
         <input type="checkbox" class="form-control" id="admin" name="admin">
       </div>
       <input type="submit" name="submit" value="Ajouter le compte" class="btn btn-primary">

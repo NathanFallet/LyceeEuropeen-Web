@@ -15,7 +15,7 @@ if($_GET['action'] == 'view'){
       </thead>
       <tbody>
 <?php
-$sql = $bdd->query("SELECT * FROM articles");
+$sql = $bdd->query("SELECT * FROM articles".($account['admin'] ? "" : " WHERE owner = ".$account['id']));
 while($dn = $sql->fetch()){
 ?>
         <tr>

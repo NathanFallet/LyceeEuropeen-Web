@@ -1,7 +1,7 @@
 <?php
 
 // URL de la racine du site, finissant par un /
-$url = 'http://localhost/lycee/';
+$url = 'http://localhost/LyceeEuropeen-Web/';
 
 // Connexion à la bdd (remplacez les identifiants)
 try {

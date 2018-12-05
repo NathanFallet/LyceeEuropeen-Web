@@ -27,7 +27,15 @@ if(!file_exists('views/'.$page.'.php') || !file_exists('models/'.$page.'.php')){
 	http_response_code(404);
 }
 
-if($account['admin'] == 0 && ($page == 'accounts')) {
+if ($account['admin'] == 0 && $page == 'accounts') {
+  $page = '403';
+}else if ($account['slides'] == 0 && $page == 'slides') {
+  $page = '403';
+}else if ($account['pages'] == 0 && $page == 'pages') {
+  $page = '403';
+}else if ($account['articles'] == 0 && $page == 'articles') {
+  $page = '403';
+}else if ($account['uploads'] == 0 && $page == 'uploads') {
   $page = '403';
 }
 
