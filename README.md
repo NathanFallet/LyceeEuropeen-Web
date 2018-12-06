@@ -66,5 +66,6 @@ CREATE TABLE `slides` (
 );
 
 /* Default account with credentials admin - admin to connect a first time to /admin */
-INSERT INTO `accounts` (`id`, `username`, `password`, `slides`, `pages`, `articles`, `uploads`, `admin`) VALUES(1, 'admin', '$2y$10$80sJGXvcwGTyc3rqm3LHw.2o635mDWcVI5FmFdDH8eUriVhxIQkhK', 1, 1, 1, 1, 1);
+INSERT INTO `accounts` (`id`, `username`, `password`, `slides`, `pages`, `articles`, `uploads`, `admin`)
+  VALUES(1, 'admin', '$2y$10$80sJGXvcwGTyc3rqm3LHw.2o635mDWcVI5FmFdDH8eUriVhxIQkhK', 1, 1, 1, 1, 1);
 ```
