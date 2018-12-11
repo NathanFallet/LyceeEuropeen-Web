@@ -75,27 +75,25 @@ while($dn_menu = $sql_menu->fetch()){
 </div>
 <?php
 require_once('views/'.$page.'.php');
+
+$json = file_get_contents('footer.json');
+$footer = json_decode($json, true);
 ?>
 <div class="wrapper row4">
   <div class="rounded">
     <footer id="footer" class="clear">
-      <div class="one_half">
+      <div class="one_third">
         <address>
-        19 Avenue de Noue<br>
-        02600 Villers-Cotter&ecirc;ts<br>
+        <?php echo $footer['address']; ?><br>
         <br>
-        <i class="fa fa-phone pright-10"></i> xxxx xxxx xxxxxx<br>
-        <i class="fa fa-envelope-o pright-10"></i> <a href="#">contact@domain.com</a>
+        <i class="fa fa-phone pright-10"></i> <?php echo $footer['phone']; ?><br>
+        <i class="fa fa-envelope-o pright-10"></i> <a href="mailto:<?php echo $footer['address']; ?>"><?php echo $footer['mail']; ?></a>
         </address>
       </div>
-      <div class="one_half">
+      <div class="one_third">
         <p class="nospace btmspace-10">Réseaux sociaux</p>
         <ul class="faico clear">
-          <!--<li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>-->
-          <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-          <!--<li><a class="faicon-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
-          <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>-->
+          <li><a class="faicon-facebook" href="<?php echo $footer['facebook']; ?>"><i class="fa fa-facebook"></i></a></li>
         </ul>
       </div>
     </footer>

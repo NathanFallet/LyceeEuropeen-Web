@@ -29,6 +29,8 @@ if(!file_exists('views/'.$page.'.php') || !file_exists('models/'.$page.'.php')){
 
 if ($account['admin'] == 0 && $page == 'accounts') {
   $page = '403';
+}else if ($account['admin'] == 0 && $page == 'footer') {
+  $page = '403';
 }else if ($account['slides'] == 0 && $page == 'slides') {
   $page = '403';
 }else if ($account['pages'] == 0 && $page == 'pages') {
