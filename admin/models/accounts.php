@@ -16,7 +16,7 @@ if($_GET['action'] == 'add'){
     }
   }
 }
-if($_GET['action'] == 'delete' && isset($_GET['id'])){
+if($_GET['action'] == 'delete' && isset($_GET['id']) && $_GET['id'] != $account['id']){
   $title = 'Supprimer un compte';
   $sql = $bdd->prepare("DELETE FROM accounts WHERE id = ?");
   if($sql->execute(array($_GET['id']))){

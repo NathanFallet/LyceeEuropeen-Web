@@ -24,7 +24,11 @@ while($dn = $sql->fetch()){
           <td><?php echo $dn['username']; ?></td>
           <td><?php echo ($dn['admin'] ? 'Oui' : 'Non'); ?></td>
           <td>
-            <a href="<?php echo $url.'accounts/delete/'.$dn['id']; ?>"><span class="glyphicon glyphicon-remove"></span></a>
+            <?php
+            if($dn['id'] != $account['id']){
+              echo '<a href="'.$url.'accounts/delete/'.$dn['id'].'"><span class="glyphicon glyphicon-remove"></span></a>';
+            }
+            ?>
           </td>
         </tr>
 <?php
